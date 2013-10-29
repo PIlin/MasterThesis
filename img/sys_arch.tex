@@ -1,0 +1,45 @@
+%!TEX root = ../praktika.tex
+
+
+\begin{tikzpicture}[auto, node distance=6em,]
+
+	\tikzstyle{block}=[draw, text width=5.7em, text centered, minimum height=3em, fill=white]
+
+	\begin{pgfonlayer}{foreground}
+		\node[block] (hc) {Хост-контролер};
+		\node[block, below of=hc] (ha) {Хост-додаток};
+		\node[block, right of=ha, node distance=10em] (ra) {Вiддалений додаток};
+		\node[block, right of=hc, node distance=10em] (ln) {Вузел};
+
+		\draw[thick,<->] (hc.south) -- (ha.north);
+		\draw[thick,<->] (ha.east) -- (ra.west);
+		\draw[thick,<->] (hc) -- (ln);
+
+		\path (hc.west) -- (ln.east)
+			 node[pos=0.5](betw-hc-ln) {} ;
+
+		\node[block, above of=betw-hc-ln, text width=10em, node distance=4em] (sen) {Сенсори};
+
+		\draw[thick,->] (sen) -- (hc);
+		\draw[thick,->] (ln) -- (sen);
+	\end{pgfonlayer}
+
+	\begin{pgfonlayer}{background}
+		\path (hc.west |- sen.north)+(-0.5,0.8) node (a) {};
+		\path (ha.east |- ha.south)+(0.5,-0.3) node (b) {};
+		\path[draw] (a) rectangle (b);
+	
+		\path (ln.west |- sen.north)+(-0.5,0.8) node (c) {};
+		\path (ln.east |- ln.south)+(0.5,-0.3) node (d) {};
+		\path[draw] (c) rectangle (d);
+	\end{pgfonlayer}
+
+	\begin{pgfonlayer}{foreground}
+		\draw[] (a) node[anchor=north west] (host-label) {Хост};
+		\path[draw] (host-label.south west) -- (host-label.south east) -- (host-label.north east);
+		
+		\draw[] (c) node[anchor=north west] (node-label) {Вузел};
+		\path[draw] (node-label.south west) -- (node-label.south east) -- (node-label.north east);
+	\end{pgfonlayer}
+
+\end{tikzpicture}
