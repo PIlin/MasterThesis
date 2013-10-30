@@ -36,6 +36,20 @@
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 
+% toc settings
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hfil \MakeUppercase} % center title, font
+% entry indents
+\renewcommand{\cftsecindent}{0em}
+\renewcommand{\cftsubsecindent}{0em}
+\renewcommand{\cftsubsubsecindent}{0em}
+
+\renewcommand{\cftbeforesecskip}{0em}       % no skip before section 
+\renewcommand{\cftsecfont}{}                % no bold section
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}} % dots are not bold
+\renewcommand{\cftsecdotsep}{\cftdotsep}    % dots for section
+\renewcommand{\cftsecpagefont}{}
+% end toc settings
 
 
 % \ESKDdepartment{Одеський національний політехнічний університет}
