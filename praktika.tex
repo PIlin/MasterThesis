@@ -100,6 +100,8 @@
 \includepdf[pages={1}]{titul/titul.pdf}
 
 \ESKDthisStyle{formII}
+% no page number on toc page: http://tex.stackexchange.com/a/2996/31897
+\addtocontents{toc}{\protect\thispagestyle{empty}} 
 \tableofcontents
 
 % \newpage
