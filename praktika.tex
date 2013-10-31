@@ -87,6 +87,12 @@
 \ESKDsectStyle{subsection}{\normalfont}
 \ESKDsectStyle{subsubsection}{\normalfont}
 
+% spacing before/after headings
+\def\sectSkipVal{0.81395ex}     % magic number
+\ESKDsectSkip{section}{\sectSkipVal}{\sectSkipVal}
+\ESKDsectSkip{subsection}{\sectSkipVal}{\sectSkipVal}
+\ESKDsectSkip{subsubsection}{\sectSkipVal}{\sectSkipVal}
+
 \let\stdESKDtheColumnI\ESKDtheColumnI
 % \renewcommand\ESKDtheColumnI{\ESKDfontIII\stdESKDtheColumnI}
 
