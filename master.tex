@@ -17,6 +17,10 @@
 \usepackage{showkeys}
 \usepackage[unicode]{hyperref}
 
+\usepackage{tabu}
+
+\usepackage{cleveref}
+
 %\usepackage{layouts}
 % Use to probe lists
 %\begin{figure}
@@ -111,11 +115,13 @@
 \newcommand{\sectionnonum}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
 
 % 
+\newcommand{\todoi}[1]{\todo[inline]{#1}}
 \newcommand{\figref}[1]{рис.~\ref{#1}}
 
 \newcommand{\iee}[0]{IEEE~802.15.4\xspace}
 \newcommand{\csma}[0]{CSMA/CA\xspace}
 
+\newcommand{\engtxt}[1]{\foreignlanguage{english}{#1}}
 
 \begin{document}
 % \selectlanguage{ukrainian}
