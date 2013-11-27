@@ -87,14 +87,14 @@
 % \ESKDdepartment{Одеський національний політехнічний університет}
 % \ESKDcompany{завод имени И.~А.~Лихачева}
 % \ESKDclassCode{31 1398}
-\ESKDtitle{Пояснювальна записка до дипломної роботи магістра}
-\ESKDdocName{}
-\ESKDsignature{ІС ДР 8.05010101 004 ПЗ}
+\ESKDtitle{Дослідження та розробка протоколів бездротових мереж на основі стандарту IEEE 802.15.4 для управління елементами меіафасаду}
+% \ESKDdocName{}
+\ESKDsignature{ІС ДР 8.05010101 001 ПЗ}
 \ESKDauthor{Ільїн~П.~О.}
-% \ESKDtitleApprovedBy{Руководитель ОКБА}{Гусев~И.~И.}
-% \ESKDtitleAgreedBy{Директор АМО ЗИЛ}{Иванов~И.~И.}
-% \ESKDtitleDesignedBy{Главный инженер АМО ЗИЛ}{Петров~И.~И}
-% \ESKDtitleDesignedBy{Руководитель разработки}{Лист~А.~А}
+\ESKDchecker{Бровков В. Г.}
+\ESKDnormContr{Бабілунга\hspace{.15em}О\hspace{-.1em}.Ю\hspace{-.1em}.}
+\ESKDapprovedBy{Антощук С. Г.}
+\ESKDcolumnIX{ОНПУ, ІКС, каф. ІС}
 
 % фікси до eskd
 \ESKDsectAlign{section}{Center}
@@ -108,10 +108,18 @@
 \ESKDsectSkip{subsection}{\sectSkipVal}{\sectSkipVal}
 \ESKDsectSkip{subsubsection}{\sectSkipVal}{\sectSkipVal}
 
+% поля в штампе
+% тема
 \let\stdESKDtheColumnI\ESKDtheColumnI
-% \renewcommand\ESKDtheColumnI{\ESKDfontIII\stdESKDtheColumnI}
-
+\renewcommand\ESKDtheColumnI{\small\stdESKDtheColumnI}
+% шифр
+\let\stdESKDtheColumnII\ESKDtheColumnII
+\renewcommand\ESKDtheColumnII{\normalsize\stdESKDtheColumnII}
+% аркуш
 \renewcommand\ESKDcolumnVIIname{Арк.}
+% наимен. предпр.
+\let\stdESKDtheColumnIX\ESKDtheColumnIX
+\renewcommand\ESKDtheColumnIX{\normalsize\stdESKDtheColumnIX}
 
 \renewcommand\paragraph{\subsubsection}
 
