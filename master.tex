@@ -74,6 +74,16 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}} % dots are not bold
 \renewcommand{\cftsecdotsep}{\cftdotsep}    % dots for section
 \renewcommand{\cftsecpagefont}{}
+
+% no-indent second line of large entries
+% http://tex.stackexchange.com/a/28348/31897
+\setlength{\cftsecnumwidth}{0em}
+\renewcommand{\cftsecaftersnumb}{\hspace{0.8em}}
+\setlength{\cftsubsecnumwidth}{0em}
+\renewcommand{\cftsubsecaftersnumb}{\hspace{1.5em}}
+\setlength{\cftsubsubsecnumwidth}{0em}
+\renewcommand{\cftsubsubsecaftersnumb}{\hspace{2.3em}}
+
 % end toc settings
 
 % list settings
@@ -1581,6 +1591,8 @@ $K_\text{св. укр.} < 1$, з цього випливає, що захисн�
 
 % \ESKDappendix{}{Завдання на лабораторну роботу та приклад виконання}
 % \label{sec:app_a:labor:work:task}
+
+
 
 \end{document}
 
