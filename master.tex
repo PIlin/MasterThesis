@@ -68,6 +68,24 @@
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
 
 
+% titlesec settings
+\newlength{\normalparindent}
+\AtBeginDocument{\setlength{\normalparindent}{\parindent}}
+
+\usepackage[explicit]{titlesec}
+\titleformat{\section}{\centering\normalfont}{\thesection}{0.4em}{\MakeUppercase{#1}}
+\titleformat{\subsection}[block]{\normalfont}{\hspace*{\normalparindent}\thesubsection}{0.4em}{#1}
+\titleformat{\subsubsection}[block]{\normalfont}{\hspace*{\normalparindent}\thesubsubsection}{0.4em}{#1}
+
+\def\sectSkipVal{4.1ex}     % magic number
+\titlespacing{\section}{0pt}{\sectSkipVal}{\sectSkipVal}
+\titlespacing{\subsection}{0pt}{\sectSkipVal}{\sectSkipVal}
+\titlespacing{\subsubsection}{0pt}{\sectSkipVal}{\sectSkipVal}
+% начать каждую секцию с новой строки
+\newcommand{\sectionbreak}{\clearpage}
+% end titlesec settings
+
+
 % toc settings
 \usepackage[subfigure]{tocloft}
 \renewcommand{\cfttoctitlefont}{\hfil \MakeUppercase} % center title, font
@@ -114,16 +132,7 @@
 \ESKDcolumnIX{ОНПУ, ІКС, каф. ІС}
 
 % фікси до eskd
-\ESKDsectAlign{section}{Center}
-\ESKDsectStyle{section}{\normalfont\MakeUppercase}
-\ESKDsectStyle{subsection}{\normalfont}
-\ESKDsectStyle{subsubsection}{\normalfont}
 
-% spacing before/after headings
-\def\sectSkipVal{4.1ex}     % magic number
-\ESKDsectSkip{section}{\sectSkipVal}{\sectSkipVal}
-\ESKDsectSkip{subsection}{\sectSkipVal}{\sectSkipVal}
-\ESKDsectSkip{subsubsection}{\sectSkipVal}{\sectSkipVal}
 
 % поля в штампе
 % тема
@@ -139,10 +148,6 @@
 \renewcommand\ESKDtheColumnIX{\normalsize\stdESKDtheColumnIX}
 
 \renewcommand\paragraph{\subsubsection}
-
-% начать каждую секцию с новой строки
-\let\stdsection\section
-\renewcommand\section{\clearpage\stdsection}
 
 % секція без номера, але в TOC
 \newcommand{\sectionnonum}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
