@@ -69,6 +69,8 @@
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 
+
+
 % subfig settings
 \usepackage{subfig}
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
@@ -91,6 +93,12 @@
 \newcommand{\sectionbreak}{\clearpage}
 % end titlesec settings
 
+
+% image caption style
+
+\DeclareCaptionFormat{figureLongCaptionFormat} {\hspace*{\normalparindent}#1#2#3}
+\DeclareCaptionStyle{figureLongCaption}[]{justification=justified,format=figureLongCaptionFormat, labelsep=dash,singlelinecheck=false,aboveskip=0mm,belowskip=3mm}
+\newcommand{\longcaption}[1]{\captionsetup{style=figureLongCaption}\caption{#1}}
 
 % toc settings
 \usepackage[subfigure]{tocloft}
@@ -616,8 +624,7 @@ $a,b$ - параметри, що залежать від робочої част
 \begin{figure}[bth]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/throughput_graph.png}
-	% \missingfigure{}
-	\caption{\label{fig:throughput_graph}Корисна пропускна здібність як функція корисного навантаження, режиму адресування та настройок підтвердження доставки (ACK).}
+	\longcaption{\label{fig:throughput_graph}Корисна пропускна здібність як функція корисного навантаження, режиму адресування та настройок підтвердження доставки}
 \end{figure}
 
 Експерименти, що були проведені у досліді~\cite{thoroughput:analysis:unslotted:ieee}, показують стабільну різницю між оціненою та експериментально виміряною корисною пропускною здібністю. Виміряна корисна пропускна здібність була десть на 11\% нижче за очиковану, тобто максимально досягнута пропускна здібність становила біля 123 кбіт/с.
