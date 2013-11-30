@@ -1104,7 +1104,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\frac{120}{1/60}} \cdot \frac{120}{10} =
 Згідно до документації, генератор Application/Traffic/Exponential може бути сконфігурований для симуляції пуасоновського процесу генерації пакетів. Для цього параметри генератору було встановлено наступним чином:
 \begin{enumerate}
 	\item $burst\_time = 0$;
-	\item $idle\_time = interval*1000 - \frac{size*8}{rate}$, де $interval$ - середній інтервал передачі, що був вказаний в таблиці \ref{tbl:simulation_backtraf_nobeac_nobrd};
+	\item $idle\_time = interval\cdot1000 - \frac{size \cdot 8}{rate}$, де $interval$ - середній інтервал передачі, що був вказаний в таблиці \ref{tbl:simulation_backtraf_nobeac_nobrd};
 	\item $size = 10$ - згідно до таблиці \ref{tbl:simulation_backtraf_nobeac_nobrd};
 	\item $rate = 250$.
 \end{enumerate}
