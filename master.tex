@@ -74,6 +74,8 @@
 % subfig settings
 \usepackage{subfig}
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
+\captionsetup[subfigure]{labelformat=simple}
+
 
 
 % titlesec settings
@@ -814,20 +816,26 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 Шляхом зміни топології мережі можна досягти збільшення максимальної кількості вузлів в мережі без зміни використовуємої мережевої технології.
 
+\todo{ref fig:expansion:topologies}
+
 \begin{figure}[htb]
+
 	\centering
-	\subfloat[\label{fig:topo_stars}Об’єднання зірок]{%[b]{0.3\textwidth}
+	\subfloat[\label{fig:topo_stars}]{%[b]{0.3\textwidth}
 		\adjustbox{max width=0.3\textwidth}{
 			\includegraphics[width=\textwidth]{img/topo_stars.pdf}
 		}
 	}
 	\qquad
-	\subfloat[\label{fig:topo_cluster}Дерево кластерів]{
+	\subfloat[\label{fig:topo_cluster}]{
 		\adjustbox{max width=0.3\textwidth}{
 			\includegraphics[width=\textwidth]{img/topo_cluster.pdf}
 		}
 	}
-	\caption{\label{fig:expansion:topologies}Розширені топології. Координатори - білі, вузли - заштриховані}
+	\caption*{Координатори - білі, вузли - заштриховані}
+	\caption{\label{fig:expansion:topologies}Розширені топології мережі:\\
+		\protect\subref*{fig:topo_stars} -- об’єднання зірок; \protect\subref*{fig:topo_cluster} -- дерево кластерів
+	}
 \end{figure}
 
 \paragraph{Об’єднання зірок}
@@ -1015,9 +1023,9 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 			\input{img/results/test_speed_nonbeac_noack_jts.pgf}
 		}
 	}
-	\caption{Графік затримки передачі в режимі без маячків та 
-		\protect\subref{subfig:result_test_speed_nonbeac_ack_jts} із~підтвердженням; 
-		\protect\subref{subfig:result_test_speed_nonbeac_noack_jts} без підтвердженням
+	\caption{Графік затримки передачі в режимі без маячків та: \\
+		\protect\subref*{subfig:result_test_speed_nonbeac_ack_jts} -- із~підтвердженням; 
+		\protect\subref*{subfig:result_test_speed_nonbeac_noack_jts} -- без підтвердження
 		}\label{fig:result_test_speed_nonbeac_jts}
 \end{figure}
 
