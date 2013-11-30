@@ -70,6 +70,16 @@
 \pgfsetlayers{background,main,foreground}
 
 
+% float per page amount settings
+\renewcommand\floatpagefraction{0.9}
+\renewcommand\topfraction{1}
+\renewcommand\bottomfraction{1}
+\renewcommand\textfraction{0}   
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+
+
 
 % subfig settings
 \usepackage{subfig}
@@ -983,7 +993,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 Параметри симуляції режима роботи без маячків вказані в таблиці \ref{tbl:simulation_settings_nonbeackon}.
 
-\begin{table}[htbp]
+\begin{table}[hbp]
 \caption{Параметри симуяції режиму роботи без маячків}
 % \begin{tabular}{|p{0.18\textwidth}|p{0.175\textwidth}}
 \centering
@@ -1002,7 +1012,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 Результати симуляції режима роботи без маячків наведено на \cref{fig:result_test_speed_nonbeac_tp,fig:result_test_speed_nonbeac_jts}.
 
-\begin{figure}[bth]
+\begin{figure}[h]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_nonbeac/tp.pgf}
@@ -1011,7 +1021,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 	\caption{\label{fig:result_test_speed_nonbeac_tp}Графік залежності корисної пропускної здатності від розміру корисного навантаження пакету в режимі роботи без маячків}
 \end{figure}
 
-\begin{figure}[bth]
+\begin{figure}[h]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		\subfloat[\label{subfig:result_test_speed_nonbeac_ack_jts}]{
@@ -1035,7 +1045,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 	
 	% \afterpage{\clearpage}
-	\clearpage
+	% \clearpage
 Параметри симуляції режима роботи із маячками вказані в таблиці \ref{tbl:simulation_settings_beackon_cap}. 
 
 \begin{table}[htbp]
@@ -1061,7 +1071,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 Результати симуляції режима роботи із маячками наведено на \cref{fig:result_tp_beacon}.
 
-\begin{figure}[bth]
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1128,7 +1138,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 Результати симуляції можна бачити на \cref{fig:result_test_backtraf_nobeac_nobrd_tp,fig:result_test_backtraf_nobeac_nobrd_succ_rate}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1137,7 +1147,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 	\caption{\label{fig:result_test_backtraf_nobeac_nobrd_tp}Графік залежності швидкості прийому на координаторі від середнього інтервалу відправки пакетів вузлами в режимі мережі без маячків та без трафіка від хоста к вузлам}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1183,11 +1193,10 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 
 Результати симуляції можна бачити на \cref{fig:result_test_backtraf_nobeac_brd_tp0,fig:result_test_backtraf_nobeac_brd_tp1,fig:result_test_backtraf_nobeac_brd_succ_rate,fig:result_test_backtraf_nobeac_brd_deliv}.
 
+
+
 На \cref{fig:result_test_backtraf_nobeac_brd_tp0} показана залежність вхідної швидкості на координаторі від середнього інтервалу відправки пакетів вузлами при різній кількості вузлів в мережі. На графіку можно бачити, що, хоча досягнута швидкість меньша, ніж у попредній симуляції (\cref{fig:result_test_backtraf_nobeac_nobrd_tp}), але мережа веде себе таким самим чином.
-
-На \cref{fig:result_test_backtraf_nobeac_brd_tp1} показана залежність вхідної швидкості на вузлі №1 від середнього інтервалу відправки пакетів вузлами при різній кількості вузлів в мережі. Вузол №1 приймає широкомовні повідомлення від координатора. На графіку можно бачити, що при малому розмірі мережі та малій інтенсивності трафіку від вузлі к хосту, трафік від хоста к вузлам дійсно займає заплановану полосу пропускання 80 КБіт/с. Але, при підвищенні нагрузки на мережу, вузол №1 починає втрачати пакети, через що вхідна швидкість падає. Це підтверджується і на \cref{fig:result_test_backtraf_nobeac_brd_succ_rate,fig:result_test_backtraf_nobeac_brd_deliv}, де показана залежність долі успішно прийнятих вузалми пакетів. На графіку видно, що із зменьшенням інтервалу відправки пакетів, доля успішно доставлених пакетів падає. Обидва графіки показють таку ж саму поведінку під навантаженням. 
-
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1197,7 +1206,9 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 \end{figure}
 
 
-\begin{figure}[h]
+На \cref{fig:result_test_backtraf_nobeac_brd_tp1} показана залежність вхідної швидкості на вузлі №1 від середнього інтервалу відправки пакетів вузлами при різній кількості вузлів в мережі. Вузол №1 приймає широкомовні повідомлення від координатора. На графіку можно бачити, що при малому розмірі мережі та малій інтенсивності трафіку від вузлі к хосту, трафік від хоста к вузлам дійсно займає заплановану полосу пропускання 80 КБіт/с. Але, при підвищенні нагрузки на мережу, вузол №1 починає втрачати пакети, через що вхідна швидкість падає. Це підтверджується і на \cref{fig:result_test_backtraf_nobeac_brd_succ_rate,fig:result_test_backtraf_nobeac_brd_deliv}, де показана залежність долі успішно прийнятих вузалми пакетів. На графіку видно, що із зменьшенням інтервалу відправки пакетів, доля успішно доставлених пакетів падає. Обидва графіки показють таку ж саму поведінку під навантаженням. 
+
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1206,7 +1217,7 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 	\caption{\label{fig:result_test_backtraf_nobeac_brd_tp1}Графiк залежностi швидкостi прийому на вузлі №1 вiд середнього iнтервалу вiдправки пакетiв вузлами в режимі мережі без маячків}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1215,7 +1226,7 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 	\caption{\label{fig:result_test_backtraf_nobeac_brd_succ_rate}Графік залежності долі успішно прийнятих координатором пакетів від середнього інтервалу відправки пакетів вузлами в режимі мережі без маячків}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1268,13 +1279,9 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 
 На відміну від попередніх розглянутих симуляцій, в цій симуляції розглядалися мережі розміром тільки 5 та 50. Причиною цього є аварійні откази симулятора ns-2, що були отримані під час симуляції мережі розміром 100 вузлів. Ці откази вказують на те, що в програмному коді симулятора наявні помилки. Причину отказів знайти не вдалося.
 
-Результати симуляції можна бачити на \cref{fig:result_test_backtraf_nobeac_brd_tp0,fig:result_test_backtraf_beac_brd_tp1,fig:result_test_backtraf_beac_brd_succ_rate,fig:result_test_backtraf_beac_brd_deliv}.
+Результати симуляції можна бачити на \cref{fig:result_test_backtraf_beac_brd_tp0,fig:result_test_backtraf_beac_brd_tp1,fig:result_test_backtraf_beac_brd_succ_rate,fig:result_test_backtraf_beac_brd_deliv}.
 
-На \cref{fig:result_test_backtraf_beac_brd_tp0} показана залежнiсть вхiдної швидкостi на Хості вiд середнього iнтервалу вiдправки пакетiв вузлами при рiзнiй кiлькостi вузлiв в мережi. На \cref{fig:result_test_backtraf_beac_brd_succ_rate} показана залежність долі успішно прийнятих Хостом пакетів, що були відправлені Вузлами. Поведінка трафіку від Вузлів до Хоста в мережі відповідає поведінці, що спостерігалася під час попредньої симуляції і наведена, відповідно, на \cref{fig:result_test_backtraf_nobeac_brd_tp0,fig:result_test_backtraf_nobeac_brd_succ_rate}. 
-
-На \cref{fig:result_test_backtraf_beac_brd_tp1} показана залежнiсть вхiдної швидкостi на вузлi №1 вiд середнього iнтервалу вiдправки пакетiв вузлами при рiзнiй кiлькостi вузлiв в мережi. На \cref{fig:result_test_backtraf_beac_brd_deliv} показана залежність долі успішно прийнятих вузлами пакетів, що були відправлені Хостом. З графиків видно, що трафік від Вузлів до Хоста ніяк не впливає на трафік від Хоста до Вузлів. Мережа здатна підтримувати задану корисну пропускну здібніть. Доля успішно доставлених пакетів наближається до 100%.
-
-\begin{figure}[h]
+\begin{figure}[hbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1283,7 +1290,9 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 	\caption{\label{fig:result_test_backtraf_beac_brd_tp0}Графiк залежностi швидкостi прийому на координаторi вiд середнього iнтервалу вiдправки пакетiв вузлами в режимі мережі із маячками}
 \end{figure}
 
-\begin{figure}[h]
+На \cref{fig:result_test_backtraf_beac_brd_tp0} показана залежнiсть вхiдної швидкостi на Хості вiд середнього iнтервалу вiдправки пакетiв вузлами при рiзнiй кiлькостi вузлiв в мережi. На \cref{fig:result_test_backtraf_beac_brd_succ_rate} показана залежність долі успішно прийнятих Хостом пакетів, що були відправлені Вузлами. Поведінка трафіку від Вузлів до Хоста в мережі відповідає поведінці, що спостерігалася під час попредньої симуляції і наведена, відповідно, на \cref{fig:result_test_backtraf_nobeac_brd_tp0,fig:result_test_backtraf_nobeac_brd_succ_rate}. 
+
+\begin{figure}[hbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1292,7 +1301,10 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 	\caption{\label{fig:result_test_backtraf_beac_brd_succ_rate}Графік залежності долі успішно прийнятих координатором пакетів від середнього інтервалу відправки пакетів вузлами в режимі мережі із маячками}
 \end{figure}
 
-\begin{figure}[h]
+
+На \cref{fig:result_test_backtraf_beac_brd_tp1} показана залежнiсть вхiдної швидкостi на вузлi №1 вiд середнього iнтервалу вiдправки пакетiв вузлами при рiзнiй кiлькостi вузлiв в мережi. На \cref{fig:result_test_backtraf_beac_brd_deliv} показана залежність долі успішно прийнятих вузлами пакетів, що були відправлені Хостом. З графиків видно, що трафік від Вузлів до Хоста ніяк не впливає на трафік від Хоста до Вузлів. Мережа здатна підтримувати задану корисну пропускну здібніть. Доля успішно доставлених пакетів наближається до 100%.
+
+\begin{figure}[bp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
@@ -1301,7 +1313,7 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 	\caption{\label{fig:result_test_backtraf_beac_brd_tp1}Графiк залежностi швидкостi прийому на вузлі №1 вiд середнього iнтервалу вiдправки пакетiв вузлами в режимі мережі із маячками}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\centering
 	\adjustbox{max width=\textwidth}{
 		% \input{/home/pashkoff/code/ns/my/test_speed_beac_noack_var_boso/tp.pgf}
