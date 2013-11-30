@@ -106,11 +106,13 @@
 % end titlesec settings
 
 
-% image caption style
+% figure caption style
 
 \DeclareCaptionFormat{figureLongCaptionFormat} {\hspace*{\normalparindent}#1#2#3}
 \DeclareCaptionStyle{figureLongCaption}[]{justification=justified,format=figureLongCaptionFormat, labelsep=dash,singlelinecheck=false,aboveskip=0mm,belowskip=3mm}
 \newcommand{\longcaption}[1]{\captionsetup{style=figureLongCaption}\caption{#1}}
+% end figure caption style
+
 
 % toc settings
 \usepackage[subfigure]{tocloft}
@@ -144,6 +146,17 @@
 \AddEnumerateCounter{\Asbuk}{\@Asbuk}{\CYRM}
 \AddEnumerateCounter{\asbuk}{\@asbuk}{\cyrm}
 % end list settings
+
+
+% bibliography list settings
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}
+  {\advance\leftmargin\labelsep}
+  {\leftmargin=0pt\itemindent=1.85cm}
+  {}{}
+
+% end bibliography list settings
+
 
 % \ESKDdepartment{Одеський національний політехнічний університет}
 % \ESKDcompany{завод имени И.~А.~Лихачева}
