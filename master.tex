@@ -200,6 +200,10 @@
 
 \newcommand{\engtxt}[1]{\foreignlanguage{english}{#1}}
 
+% 
+\newcommand{\col}[2]{\multicolumn{1}{#1}{#2}}
+
+
 \begin{document}
 % \selectlanguage{ukrainian}
 
@@ -529,9 +533,10 @@ OMNeT++ - це компонентний фреймворк для побудув
 
 \begin{table}[htbp]
 	\caption{Список рівнів PHY, що підтримуються стандартом \iee}
-	\begin{tabular}{|p{0.42\textwidth}|p{0.18\textwidth}|p{0.15\textwidth}|p{0.15\textwidth}|}
+	\begin{tabu}{|p{0.42\textwidth}|>{\centering}p{0.18\textwidth}|p{0.15\textwidth}|>{\centering}p{0.15\textwidth}|}
+	% \begin{tabu} to \textwidth{ |l|X|l|X| }
 		\hline
-		PHY (МГц)                                 & Частотний діапазон, МГц      & Модуляція              & Пропускна здатність, Кбіт/с \\ \hline
+		\col{|c|}{Назва рвіню PHY}                & Частотний діапазон, МГц      & \col{c|}{Модуляція}    & Пропускна здатність, Кбіт/с \\ \hline
 		780                                       & 779-787                      & O-QPSK                 & 250                         \\ \hline
 		780                                       & 779-787                      & MPSK                   & 250                         \\ \hline
 		\multirow{2}{*}{868/915}                  & 868-868,6                    & BPSK                   & 20                          \\ \cline{ 2- 4}
@@ -543,12 +548,12 @@ OMNeT++ - це компонентний фреймворк для побудув
 		950                                       & 950-956                      & GFSK                   & 100                         \\ \hline
 		950                                       & 950-956                      & BPSK                   & 20                          \\ \hline
 		2450 DSSS                                 & 2400-2483,5                  & O-QPSK                 & 250                         \\ \hline
-		UWB subgigahertz (необов’язково)          & 250-750                      & BPM-BPSK               &                             \\ \hline
+		UWB subgigahertz (необов’язково)          & 250-750                      & BPM-BPSK               & ---                         \\ \hline
 		\multirow{2}{*}{2450 CSS (необов’язково)} & \multirow{2}{*}{2400-2483,5} & \multirow{2}{*}{DQPSK} & 250                         \\ \cline{ 4- 4}
 		                                          &                              &                        & 1000                        \\ \hline
-		UWB low band (необов’язково)              & 3244-4742                    & BPM-BPSK               &                             \\ \hline
-		UWB high band (необов’язково)             & 5944-10234                   & BPM-BPSK               &                             \\ \hline
-	\end{tabular}
+		UWB low band (необов’язково)              & 3244-4742                    & BPM-BPSK               & ---                         \\ \hline
+		UWB high band (необов’язково)             & 5944-10234                   & BPM-BPSK               & ---                         \\ \hline
+	\end{tabu}
 	\label{tbl:supported:phy:iee}
 \end{table}
 
@@ -949,11 +954,10 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 \begin{table}[htbp]
 \caption{Класи компонентів, що були використані для симуляції}
-% \begin{tabular}{|p{0.18\textwidth}|p{0.175\textwidth}}
 \centering
-\begin{tabular}{|l|l|}
+\begin{tabu} to \textwidth { |X|X| }
 \hline
-Компонент                     & Клас                       \\ \hline
+\col{|c|}{Компонент}          & \col{c|}{Клас}             \\ \hline
 Канал зв’язку                 & Channel/WirelessChannel    \\ \hline
 Антена                        & Antenna/OmniAntenna        \\ \hline
 Мережевий інтерфейс           & Phy/WirelessPhy/802\_15\_4 \\ \hline
@@ -962,7 +966,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 Очередь інтерфейсу            & Queue/DropTail/PriQueue    \\ \hline
 Рівень LL                     & LL/LL802\_15\_4            \\ \hline
 Агент маршрутизації           & NOAH                       \\ \hline
-\end{tabular}
+\end{tabu}
 \label{tbl:simulation_classes}
 \end{table}
 
@@ -1008,18 +1012,17 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 \begin{table}[hbp]
 \caption{Параметри симуяції режиму роботи без маячків}
-% \begin{tabular}{|p{0.18\textwidth}|p{0.175\textwidth}}
 \centering
-\begin{tabular}{|l|l|}
+\begin{tabu} to \textwidth { |X|X| }
 	\hline
-	Параметер                           &                         \\ \hline
+	\col{|c|}{Параметер}                & \col{c|}{Значення}      \\ \hline
 	Кількість вузлів                    & 2                       \\ \hline
 	Час симуляції, с                    & 60                      \\ \hline
 	Розмір корисного навантаження, байт & 1..120                  \\ \hline
 	Режим режим адресування, біт        & 16                      \\ \hline
 	Режим підтвердження                 & Із та без підтвердження \\ \hline
 	Режим роботи                        & Без маячків             \\ \hline
-\end{tabular}
+\end{tabu}
 \label{tbl:simulation_settings_nonbeackon}
 \end{table}
 
@@ -1063,20 +1066,19 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 \begin{table}[htbp]
 \caption{Параметри симуяції режима роботи із маячками}
-% \begin{tabular}{|p{0.18\textwidth}|p{0.175\textwidth}}
 \centering
-\begin{tabular}{|l|l|}
+\begin{tabu} to \textwidth { |X|X| }
 	\hline
-	Параметер                           &                   \\ \hline
-	Кількість вузлів                    & 2                 \\ \hline
-	Час симуляції, с                    & 60                \\ \hline
-	Розмір корисного навантаження, байт & 1,50,100,120      \\ \hline
-	Режим режим адресування, біт        & 16                \\ \hline
-	Режим підтвердження                 & Без підтвердження \\ \hline
-	Режим роботи                        & З маячками        \\ \hline
-	BO                                  & 1,3,5,7           \\ \hline
-	SO                                  & SO = BO = 1,3,5,7 \\ \hline
-\end{tabular}
+	\col{|c|}{Параметер}                & \col{c|}{Значення} \\ \hline
+	Кількість вузлів                    & 2                  \\ \hline
+	Час симуляції, с                    & 60                 \\ \hline
+	Розмір корисного навантаження, байт & 1,50,100,120       \\ \hline
+	Режим режим адресування, біт        & 16                 \\ \hline
+	Режим підтвердження                 & Без підтвердження  \\ \hline
+	Режим роботи                        & З маячками         \\ \hline
+	BO                                  & 1,3,5,7            \\ \hline
+	SO                                  & SO = BO = 1,3,5,7  \\ \hline
+\end{tabu}
 \label{tbl:simulation_settings_beackon_cap}
 \end{table}
 
@@ -1114,11 +1116,10 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 \begin{table}[htbp]
 \caption{Параметри симуяції мережі вузлів візуалізації в режимі без маячків}
-% \begin{tabular}{|p{0.18\textwidth}|p{0.175\textwidth}}
 \centering
-\begin{tabular}{|l|l|}
+\begin{tabu} to \textwidth { |l|X| }
 	\hline
-	Параметер                                    &                                 \\ \hline
+	\col{|c|}{Параметер}                         & \col{c|}{Значення}              \\ \hline
 	Кількість вузлів ($nn$)                      & 5, 50, 100                      \\ \hline
 	Час симуляції, с                             & 10                              \\ \hline
 	Режим режим адресування                      & 16 біт                          \\ \hline
@@ -1127,7 +1128,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 	Генератор трафіку                            & Application/Traffic/Exponential \\ \hline
 	Розмір корисного навантаження ($size$), байт & 10                              \\ \hline
 	Інтервал передачі ($interval$), с            & $0,005;\dots;1$                \\ \hline
-\end{tabular}
+\end{tabu}
 \label{tbl:simulation_backtraf_nobeac_nobrd}
 \end{table}
 
@@ -1179,11 +1180,10 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 
 \begin{table}[htbp]
 \caption{Параметри симуяції}
-% \begin{tabular}{|p{0.18\textwidth}|p{0.175\textwidth}}
 \centering
-\begin{tabular}{|l|l|}
+\begin{tabu} to \textwidth { |l|X| }
 	\hline
-	Параметер                                    &                                 \\ \hline
+	\col{|c|}{Параметер}                         & \col{c|}{Значення}              \\ \hline
 	Кількість вузлів ($nn$)                      & 5, 50, 100                      \\ \hline
 	Час симуляції, с                             & 10                              \\ \hline
 	Режим режим адресування                      & 16 біт                          \\ \hline
@@ -1195,7 +1195,7 @@ $N(10, 1/60) = \frac{150000 / 8}{\dfrac{120}{1/60}} \cdot \frac{120}{10} =
 	Генератор широкомовного трафіку              & Application/BroadcastbaseApp    \\ \hline
 	Розмір корисного навантаження , байт         & 120                             \\ \hline
 	Інтервал передачі ($bmsg\_interval$), с      & 0,012                           \\ \hline
-\end{tabular}
+\end{tabu}
 \label{tbl:simulation_backtraf_nobeac_brd}
 \end{table}
 
@@ -1263,11 +1263,10 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 
 \begin{table}[htbp]
 \caption{Параметри симуяції мережі вузлів візуалізації в режимі із маячками}
-% \begin{tabular}{|p{0.18\textwidth}|p{0.175\textwidth}}
 \centering
-\begin{tabular}{|l|l|}
+\begin{tabu} to \textwidth { |l|X| }
 	\hline
-	Параметер                                    &                                 \\ \hline
+	\col{|c|}{Параметер}                         & \col{c|}{Значення}              \\ \hline
 	Кількість вузлів ($nn$)                      & 5, 50                           \\ \hline
 	Час симуляції, с                             & 10                              \\ \hline
 	Режим режим адресування                      & 16 біт                          \\ \hline
@@ -1282,7 +1281,7 @@ $	bmsg\_interval = \frac{1 \text{ с}}{\dfrac{80 \text{ Кбіт/с} \cdot 1000}
 	Генератор широкомовного трафіку              & Application/BroadcastbaseApp    \\ \hline
 	Розмір корисного навантаження , байт         & 120                             \\ \hline
 	Інтервал передачі ($bmsg\_interval$), с      & 0,012                           \\ \hline
-\end{tabular}
+\end{tabu}
 \label{tbl:simulation_backtraf_beac_brd}
 \end{table}
 
