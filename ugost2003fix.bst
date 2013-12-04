@@ -1196,11 +1196,7 @@ FUNCTION {format.url}
 { url empty$
     { "" }
     {
-      "URL: \BibUrl{" url * "}" *
-      urldate empty$
-        { "" }
-        { " (" bbl.urldate * ": " * urldate * ")" * }
-      if$ *
+      "Mode of access: \BibUrl{" url * "}" *
     }
   if$
 }
