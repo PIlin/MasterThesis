@@ -205,6 +205,14 @@ aboveskip=0mm,belowskip=3mm, font={stretch=1.5}}
 % секція без номера, але в TOC
 \newcommand{\sectionnonum}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
 
+% секція додатку
+\newcommand{\externalAppendix}[1]{
+	\ESKDclearDoublePage
+	\refstepcounter{appendix}
+	\addcontentsline{toc}{section}{\appendixname\ \theappendix\ #1}
+}
+
+
 % 
 \newcommand{\todoi}[1]{\todo[inline]{#1}}
 \newcommand{\figref}[1]{рис.~\ref{#1}}
@@ -233,6 +241,8 @@ aboveskip=0mm,belowskip=3mm, font={stretch=1.5}}
 \includepdf[pages={1}]{titul/task1.pdf}
 
 \includepdf[pages={1}]{titul/task2.pdf}
+
+\includepdf[pages={1}]{titul/task3.pdf}
 
 \ESKDthisStyle{formII}
 % no page number on toc page: http://tex.stackexchange.com/a/2996/31897
@@ -1756,8 +1766,10 @@ $K_\text{св. укр.} < 1$, з цього випливає, що захисн�
 \bibliographystyle{ugost2003}
 \bibliography{fp}
 
-\ESKDappendix{}{Програмний код скрипту сценарію моделювання}
+\externalAppendix{Програмний код сценарію моделювання}
 \label{sec:app_a:script}
+\ESKDstyle{empty}
+\includepdf[pages={1-6}]{model_scenario.pdf}
 
 
 
