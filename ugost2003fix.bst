@@ -107,7 +107,7 @@ FUNCTION {output.nonnull}
     { ", " * write$ }
     { output.state after.block =
         { add.period$ write$
-          " " quote$ "--- " * *  write$
+          " " "" "--- " * *  write$
           newline$
           "\newblock " write$
         }
@@ -833,7 +833,7 @@ FUNCTION {format.date}
     }
     { month empty$
         'year
-        { year ". " quote$ "--- " month * * * * }
+        { year ". " "" "--- " month * * * * }
       if$
     }
   if$
