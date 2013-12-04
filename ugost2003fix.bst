@@ -708,9 +708,9 @@ FUNCTION {bbl.executor}
 if$}
 
 FUNCTION {bbl.medium}
-{ type$ "online" =
-   { bbl.medium.elres }
+{ url empty$
    { bbl.medium.text  }
+   { bbl.medium.elres }
 if$}
 
 INTEGERS { nameptr namesleft numnames }
