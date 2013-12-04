@@ -843,11 +843,7 @@ FUNCTION {output.address.publisher}
 {
   address empty$
     {
-      bbl.nnoaddress
-      publisher empty$
-        { "~: " * bbl.nopublisher * enclose.square.brackets }
-        { enclose.square.brackets "~: " * publisher * }
-      if$
+      ""
     }
     {
       address output
